@@ -1,11 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="font-awesome/fontawesome-free-5.15.2-web/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
-    
+    <header>
+        <div class="header__bg"></div>
+        <h1>WHAT'S THE </br> WEATHER?</h1>
+        <!-- SEARCH BAR -->
+        <div class="search-container">
+            <form action="/action_page.php">
+              <input type="text" placeholder="Search location.." name="search">
+              <button type="submit"><i class="fa fa-search"></i></button>
+            </form></br>
+                <form action="/action_page.php">
+                <input type="checkbox" id="onlyWeather" value="weather">
+                <label for="weather"> Only weather</label><br>
+                <input type="checkbox" id="onlyAttractions" value="attractions">
+                <label for="attractions"> Only attractions</label><br>
+                <input type="checkbox" id="filterAlpha" value="alphabetically">
+                <label for="alphabetically"> Filter alphabetically</label><br><br>
+              </form>
+          </div>
+      </header>
+      
+      <section>
+        <h2>Section Content</h2>
+      </section>
 </body>
 </html>
