@@ -5,19 +5,21 @@
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>What's the location?</title>
 </head>
 <body>
     <header>
-        <div class="header__bg"></div>
-        <h1>WHAT'S THE </br> WEATHER?</h1>
+        <video height="350" autoplay muted loop id="videobg">
+            <source src="img/newyork.mp4" type="video/mp4">
+          </video>
+          <h1>YOUR ULTIMATE </br> TRAVEL GUIDE</h1>
         <!-- SEARCH BAR -->
         <div class="search-container">
-            <form action="/action_page.php">
-              <input type="text" placeholder="Search location.." name="search">
-              <button type="submit"><i class="fa fa-search"></i></button>
+              <form>
+              <input class="searchBox" type="text" placeholder="Search location.." name="search">
+              <button class="searchButton" type="submit"><i class="fa fa-search"></i></button>
             </form></br>
-                <form action="/action_page.php">
+                <form>
                 <input type="checkbox" id="onlyWeather" value="weather">
                 <label for="weather"> Only weather</label><br>
                 <input type="checkbox" id="onlyAttractions" value="attractions">
@@ -27,9 +29,23 @@
               </form>
           </div>
       </header>
-      
-      <section>
-        <h2>Section Content</h2>
+      <!-- INFORMATION ABOUT THE LOCATION -->
+      <section class="container">
+        <h3>Weather...</h3>
+        <div class="weather">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam rerum modi inventore, quas iusto vitae id magnam, veritatis consequuntur vel fugiat. Sit, aliquid dignissimos ratione perferendis inventore asperiores reprehenderit fugiat.</p>
+        </div>
+        <h3>Top attractions...</h3>
+        <div class="attractions">
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio, harum dicta doloremque sed tenetur reiciendis voluptatibus. At non minima accusamus sunt amet. Corrupti natus aliquam reprehenderit minus? Est, molestiae repellendus!</p>
+        </div>
+        <div class="attractions">
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio, harum dicta doloremque sed tenetur reiciendis voluptatibus. At non minima accusamus sunt amet. Corrupti natus aliquam reprehenderit minus? Est, molestiae repellendus!</p>
+        </div>
+        <div class="attractions">
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio, harum dicta doloremque sed tenetur reiciendis voluptatibus. At non minima accusamus sunt amet. Corrupti natus aliquam reprehenderit minus? Est, molestiae repellendus!</p>
+        </div>
       </section>
+      <link rel="stylesheet" href="Script.js">
 </body>
 </html>
