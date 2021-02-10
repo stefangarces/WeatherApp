@@ -1,7 +1,7 @@
 body {
     padding: 0;
     margin: 0;
-    background-color: #77A6F7;
+    background-color: #d1d1d1;
     font-family: sans-serif;
     overflow-x: hidden;
 }
@@ -69,22 +69,17 @@ body {
   }
 
     /* container for weather and attractions divs */
-  .container {
-    display: flex;
+  .container, .weather {
+    display:grid;
     margin: auto;
     width: 100%;
     padding: 10px;
-    justify-content: center;
+    justify-content: space-evenly;
   }
 
-  .weather {
-    max-width: 400px;
-    background: #ffffff;
-    border: 1px rgb(0, 0, 0);
-    padding: 25px;
-  }
+   
 
-  .attractions {
+  #attraction, #weatherText {
     max-width: 400px;
     background: #ffffff;
     border: 1px rgb(0, 0, 0);
