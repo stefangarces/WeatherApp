@@ -1,7 +1,7 @@
 body {
     padding: 0;
     margin: 0;
-    background-color: #d1d1d1;
+    background-color: #93a3ff;
     font-family: sans-serif;
     overflow-x: hidden;
 }
@@ -23,7 +23,7 @@ body {
     color: #c7c7c7;
   }
 
-  .searchBox {
+  #searchBox {
     top: 355px;
     left: 575px;
     height: 30px;
@@ -31,7 +31,7 @@ body {
     font-family: sans-serif;
   }
 
-  .searchButton {
+  #searchButton {
     top: 355px;
     left: 575px;
     height: 36px;

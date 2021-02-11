@@ -1,20 +1,16 @@
-let searchBtn = document.getElementsByClassName("searchButton");
+const SearchBtn = document.getElementById("searchButton");
 
-let output = document.querySelector("#weatherText");
+SearchBtn.onclick = async function() {
+    let apiKey = "34832f1e903a4e490cfc9a2d3fffea23";
+    let cityName = "Göteborg";
+    let response = await fetch ('https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}')
+    let json = await response.json()
+    console.log(json)
+    setWeather(json)
 
-function GetWeatherInfoUrl(cityName) {
-    const url = new URL("https://api.openweathermap.org/data/2.5/weather");
-
-    url.searchParams.append("q", cityName);
-    url.searchParams.append("appid", "34832f1e903a4e490cfc9a2d3fffea23");
-    url.searchParams.append("mode", "json");
-    url.searchParams.append("units", "metric");
-    url.searchParams.append("lang", "se");
-
-    output.innerTEXT = url;
-
-    return url;
+    console.log(response)
 }
+
 
 
 
