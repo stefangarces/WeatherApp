@@ -2,49 +2,18 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="font-awesome/fontawesome-free-5.15.2-web/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>What's the location?</title>
 </head>
 <body>
-    <header>
-        <video height="350" autoplay muted loop id="videobg">
-            <source src="img/newyork.mp4" type="video/mp4">
-          </video>
-          <h1>YOUR ULTIMATE </br> TRAVEL GUIDE</h1>
-        <!-- SEARCH BAR -->
-        <div class="search-container">
-              <form>
-              <input id="searchBox" type="text" placeholder="Search location.." name="search">
-              <button id="searchButton" type="submit"><i class="fa fa-search"></i></button>
-            </form></br>
-                <form>
-                <input type="checkbox" id="onlyWeather" value="weather">
-                <label for="weather"> Only weather</label><br>
-                <input type="checkbox" id="onlyAttractions" value="attractions">
-                <label for="attractions"> Only attractions</label><br>
-                <input type="checkbox" id="filterAlpha" value="alphabetically">
-                <label for="alphabetically"> Filter alphabetically</label><br><br>
-              </form>
-          </div>
-      </header>
+      <div class="search-container">
+        <input id="searchBox" type="text" placeholder="Search location.." name="search">
+        <button id="searchButton" type="submit"><i class="fa fa-search"></i></button>
+    </div>
       <!-- INFORMATION ABOUT THE LOCATION -->
       <div class="weather">
         <h3 id="weather">Weather...</h3>
-        <p id="weatherText"></p>
-          <p id="city"></p>
-          <p id="temp"></p>
-          <p id="cityWeather"></p>
-          <div id="weathercon"></div>
       </div>
-      <section class="container" id="containerAttrac">
-        <h3>Top attractions...</h3>
-        <div id="attraction">
-          <h4 id="AllAttractions">Liseberg</h4>
-            <p id="cityInfo">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio, harum dicta doloremque sed tenetur reiciendis voluptatibus. At non minima accusamus sunt amet. Corrupti natus aliquam reprehenderit minus? Est, molestiae repellendus!</p>
-        </div>
-      </section>
-      <script src="Script.js"></script>
 </body>
 </html>
