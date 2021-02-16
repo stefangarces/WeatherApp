@@ -40,6 +40,27 @@ body {
   button {
     color: black;
   }
+
+  .weatherFrame {
+    position: relative;
+    text-align: center;
+    margin-top: 5%;
+    max-width: 400px;
+    background: #ffffff;
+    border: 1px solid;
+    box-shadow: 2px 4px;
+    padding: 5px;
+    z-index: -99;
+  }
+
+  #centerDiv {
+    margin-left: 13%;
+    margin-top: 13%;
+  }
+
+  #city, p {
+    color: black;
+  }
   
   h1 {
     position:absolute;
