@@ -1,8 +1,9 @@
 const searchBox = document.getElementById("searchBox");
 const searchBtn = document.getElementById("searchButton");
+const post = document.getElementById("centerDiv");
 
 searchBtn.addEventListener('click', () => {
-    //getWeather();
+    getWeather();
     getAttraction();
 })
 
@@ -45,9 +46,31 @@ async function getAttraction() {
     let response = await fetch(`https://api.foursquare.com/v2/venues/search?near=${cityName}&client_id=${cID}&client_secret=${cSecret}&v=${date}`);
         let json = await response.json();
         console.log(json);
+        createElementsAttraction(json);
     
     /*
     let cityInfo = document.getElementById("cityInfo");
     cityInfo.innerHTML = json.name; */
 }
 
+function createElementsAttraction(json) {
+
+    const innerDiv = document.createElement("div");
+    const title = document.createElement("h3");
+    const paragraph = document.createElement("p")
+
+    let titleText = json.response.venues[0].name;
+    let adress = json.response.venues[0].location.address;
+
+    title.append(titleText);
+    paragraph.append(adress);
+
+    innerDiv.classList.add("weatherFrame");
+    title.classList.add("h3");
+    innerDiv.classList.add("p");
+
+    innerDiv.appendChild(title);
+    innerDiv.appendChild(paragraph);
+
+    post.append(innerDiv);
+}
