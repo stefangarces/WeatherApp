@@ -2,6 +2,7 @@ const searchBox = document.getElementById("searchBox");
 const searchBtn = document.getElementById("searchButton");
 const post = document.getElementById("centerDiv");
 
+
 searchBtn.addEventListener("click", () => {
   getWeather();
   getAttraction();
@@ -12,17 +13,21 @@ async function getWeather() {
   let response = await fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&lang=en&appid=34832f1e903a4e490cfc9a2d3fffea23`
   );
-  let json = await response.json();
-  Weather(json);
-  City(json);
+  if (response.ok) {
+    let json = await response.json();
+    Weather(json);
+    City(json);
+  } else {
+    alert("Couldn't find the weather of that city.");
+  }
 }
-
+// Put the name of the current city on display
 function City(json) {
   let city = document.getElementById("city");
   let cityName = json.name;
   city.innerHTML = cityName;
 }
-
+// Function to get the weather from the API
 function Weather(json) {
   let temp = document.getElementById("temp");
   let weather = document.getElementById("cityWeather");
@@ -31,7 +36,7 @@ function Weather(json) {
   weather.innerHTML = weatherDes;
   temp.innerHTML = tempDes + " °C";
 }
-
+// Function to get the attraction from the API
 async function getAttraction() {
   let cityName = searchBox.value;
   const cID = "F0XVM54UYVNCOZHAZDT4RSKENV3X5QN2DH2WALP0UDVQGYYI";
@@ -46,31 +51,32 @@ async function getAttraction() {
   let response = await fetch(
     `https://api.foursquare.com/v2/venues/search?near=${cityName}&client_id=${cID}&client_secret=${cSecret}&v=${date}`
   );
-  let json = await response.json();
-  console.log(json);
-  createElementsAttraction(json);
-
-  /*
-    let cityInfo = document.getElementById("cityInfo");
-    cityInfo.innerHTML = json.name; */
+  if (response.ok) {
+    let json = await response.json();
+    console.log(json);
+    createElementsAttraction(json);
+  } else {
+    alert("The city doesn't exist. Try another one.");
+  }
 }
-
+// Gets 5 attractions from the API with a 'while' loop
 function createElementsAttraction(json) {
+
   let i = 0;
   while (i < 5) {
     const innerDiv = document.createElement("div");
     const title = document.createElement("h3");
     const paragraph = document.createElement("p");
 
-    let titleText = json.response.venues[0].name;
-    let adress = json.response.venues[0].location.address;
+    let titleText = json.response.venues[i].name;
+    let adress = json.response.venues[i].location.address;
 
     title.append(titleText);
     paragraph.append(adress);
 
-    innerDiv.classList.add("weatherFrame");
+    innerDiv.classList.add("attractionFrame");
     title.classList.add("h3");
-    innerDiv.classList.add("p");
+    paragraph.classList.add("p");
 
     innerDiv.appendChild(title);
     innerDiv.appendChild(paragraph);
@@ -79,4 +85,9 @@ function createElementsAttraction(json) {
 
     i++;
   }
+}
+
+function deleteContent() {
+  let deleteAll = document.querySelector(".attractionFrame");
+  deleteAll.remove();
 }
