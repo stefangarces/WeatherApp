@@ -1,19 +1,20 @@
+// variables are created for the search button, input-searchbox and "centerDiv" where the attractions posts are posted.
 const searchBox = document.getElementById("searchBox");
 const searchBtn = document.getElementById("searchButton");
 const post = document.getElementById("centerDiv");
-
+// variables are created for the checkboxes
 const checkWeather = document.getElementById("onlyWeather");
 const checkAttractions = document.getElementById("onlyAttractions");
 const checkAlph = document.getElementById("alphOrder");
 
-
+// This is where the code starts, the eventlistener waits for the button click and then executes the code
 searchBtn.addEventListener("click", () => {
   if (checkWeather.checked == true) { getWeather(); }
   if (checkAttractions.checked == true) { getAttraction(); }
   if (checkWeather.checked == true && checkAttractions == true) { getWeather(); getAttraction(); }
   if (checkWeather.checked == false && checkAttractions == false) { getWeather(); getAttraction(); }
 });
-
+// function to get the weather from the API
 async function getWeather() {
   let cityName = searchBox.value;
   let response = await fetch(
@@ -47,7 +48,7 @@ async function getAttraction() {
   let cityName = searchBox.value;
   const cID = "F0XVM54UYVNCOZHAZDT4RSKENV3X5QN2DH2WALP0UDVQGYYI";
   const cSecret = "VMJ3P5SXFWKQVGF0ZRW4AUFWB25YZ4YFMRQUYT0KC0F2WCCI";
-
+  // creates the date
   let cDate = new Date();
   let Day = "0" + cDate.getDate();
   let Month = "0" + (cDate.getMonth() + 1);
@@ -67,7 +68,7 @@ async function getAttraction() {
 }
 // Gets 5 attractions from the API with a 'while' loop
 function createElementsAttraction(json) {
-
+  // While loop to get more than one attraction
   let i = 0;
   while (i < 5) {
     const innerDiv = document.createElement("div");
