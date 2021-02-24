@@ -6,24 +6,8 @@ body {
     overflow-x: hidden;
 }
 
-  #videobg {
-    object-fit: cover;
-    width: 100vw;
-    left: 0;
-    margin-top: 0%;
-    filter: brightness(50%);
-  }
-
-  .search-container {
-    position: relative;
-    left: 49%;
-    margin-top: 200px;
-    margin-left: -100px;
-    color: #c7c7c7;
-  }
-
   #searchBox {
-    top: 355px;
+    margin-top: 15px;
     left: 575px;
     height: 30px;
     width: 150px;
@@ -31,7 +15,7 @@ body {
   }
 
   #searchButton {
-    top: 355px;
+    margin-top: 15px;
     left: 575px;
     height: 36px;
     width: 60px;
@@ -41,7 +25,7 @@ body {
     color: black;
   }
 
-  .weatherFrame {
+  .weatherFrame, .attractionFrame {
     position: relative;
     text-align: center;
     margin-top: 5%;
@@ -54,30 +38,11 @@ body {
   }
 
   #centerDiv {
-    margin-left: 13%;
-    margin-top: 13%;
+    padding: 5%;
   }
 
   #city, p, .h3 {
     color: black;
-  }
-  
-  h1 {
-    position:absolute;
-    top: 5%;;
-    left:0;
-    right: 2%;
-    font-size: 50px;
-    text-align: center;
-    color: #ffffff;
-    text-shadow: 3px black;
-        /* disable mark text */
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
   }
 
   h2 {
@@ -89,29 +54,17 @@ body {
   }
 
     /* container for weather and attractions divs */
-  .container, .weather {
-    display:grid;
+  .weather {
     margin: auto;
+    min-width: 200px;
     width: 100%;
     padding: 10px;
     justify-content: space-evenly;
+    justify-content: center;
   }
 
-   
-
-  #attraction, #weatherText {
-    max-width: 400px;
-    background: #ffffff;
-    border: 1px rgb(0, 0, 0);
-    padding: 25px;
-    margin: 5%;
-  }
 
   h3 {
     font-size: 30px;
     color: #ffffff;
-  }
-
-  @media (max-width:1400px) {
-
   }

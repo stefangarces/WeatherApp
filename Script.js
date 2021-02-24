@@ -2,10 +2,16 @@ const searchBox = document.getElementById("searchBox");
 const searchBtn = document.getElementById("searchButton");
 const post = document.getElementById("centerDiv");
 
+const checkWeather = document.getElementById("onlyWeather");
+const checkAttractions = document.getElementById("onlyAttractions");
+const checkAlph = document.getElementById("alphOrder");
+
 
 searchBtn.addEventListener("click", () => {
-  getWeather();
-  getAttraction();
+  if (checkWeather.checked == true) { getWeather(); }
+  if (checkAttractions.checked == true) { getAttraction(); }
+  if (checkWeather.checked == true && checkAttractions == true) { getWeather(); getAttraction(); }
+  if (checkWeather.checked == false && checkAttractions == false) { getWeather(); getAttraction(); }
 });
 
 async function getWeather() {
