@@ -2,6 +2,7 @@
 const searchBox = document.getElementById("searchBox");
 const searchBtn = document.getElementById("searchButton");
 const post = document.getElementById("centerDiv");
+
 // variables are created for the checkboxes
 const checkWeather = document.getElementById("onlyWeather");
 const checkAttractions = document.getElementById("onlyAttractions");
@@ -9,6 +10,14 @@ const checkAlph = document.getElementById("alphOrder");
 
 // This is where the code starts, the eventlistener waits for the button click and then executes the code
 searchBtn.addEventListener("click", () => {
+  if (typeof innerDiv != "undefined") { 
+    let p = document.createElement("p");
+    let h3 = document.createElement("h3");
+    let div = document.createElement("div");
+    p.remove();
+    h3.remove();
+    div.remove();
+   }
   if (checkWeather.checked == true) { getWeather(); }
   if (checkAttractions.checked == true) { getAttraction(); }
   if (checkWeather.checked == true && checkAttractions == true) { getWeather(); getAttraction(); }
@@ -95,6 +104,6 @@ function createElementsAttraction(json) {
 }
 
 function deleteContent() {
-  let deleteAll = document.querySelector(".attractionFrame");
+  let deleteAll = document.querySelector(innerDiv);
   deleteAll.remove();
 }
