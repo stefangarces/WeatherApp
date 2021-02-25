@@ -10,18 +10,11 @@ const checkAlph = document.getElementById("alphOrder");
 
 // This is where the code starts, the eventlistener waits for the button click and then executes the code
 searchBtn.addEventListener("click", () => {
-  if (typeof innerDiv != "undefined") { 
-    let p = document.createElement("p");
-    let h3 = document.createElement("h3");
-    let div = document.createElement("div");
-    p.remove();
-    h3.remove();
-    div.remove();
-   }
+  if (post.contains(document.getElementsByClassName("attractionFrame"))) { document.getElementsByClassName("attractionFrame").remove(); }
   if (checkWeather.checked == true) { getWeather(); }
   if (checkAttractions.checked == true) { getAttraction(); }
-  if (checkWeather.checked == true && checkAttractions == true) { getWeather(); getAttraction(); }
-  if (checkWeather.checked == false && checkAttractions == false) { getWeather(); getAttraction(); }
+  if (checkWeather.checked == true && checkAttractions.checked == true) { getWeather(); getAttraction(); }
+  if (checkWeather.checked == false && checkAttractions.checked == false && checkAlph.checked == false) { getWeather(); getAttraction(); }
 });
 // function to get the weather from the API
 async function getWeather() {
