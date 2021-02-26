@@ -95,7 +95,7 @@ function createElementsAttraction(json) {
     i++;
   }
 }
-
+// a function to try to delete the created elements for the attractions
 function deleteContent() {
   let deleteAll = document.querySelector(innerDiv);
   deleteAll.remove();
