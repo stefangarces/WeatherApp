@@ -2,6 +2,10 @@
 const searchBox = document.getElementById("searchBox");
 const searchBtn = document.getElementById("searchButton");
 const post = document.getElementById("centerDiv");
+const resetAtt = document.getElementById("resetButton");
+let deleteInnerDiv = document.querySelectorAll("attractionFrame")
+let deleteTitle = document.querySelectorAll("h3");
+let deleteParagraph = document.querySelectorAll("p");
 
 // variables are created for the checkboxes
 const checkWeather = document.getElementById("onlyWeather");
@@ -10,7 +14,6 @@ const checkAlph = document.getElementById("alphOrder");
 
 // This is where the code starts, the eventlistener waits for the button click and then executes the code
 searchBtn.addEventListener("click", () => {
-  if (post.contains(document.getElementsByClassName("attractionFrame"))) { document.getElementsByClassName("attractionFrame").remove(); }
   if (checkWeather.checked == true) { getWeather(); }
   if (checkAttractions.checked == true) { getAttraction(); }
   if (checkWeather.checked == true && checkAttractions.checked == true) { getWeather(); getAttraction(); }
@@ -30,6 +33,11 @@ async function getWeather() {
     alert("Couldn't find the weather of that city.");
   }
 }
+
+resetAtt.addEventListener("click", () => {
+  window.location.reload();
+})
+
 // Put the name of the current city on display
 function City(json) {
   let city = document.getElementById("city");
@@ -71,14 +79,16 @@ async function getAttraction() {
 // Gets 5 attractions from the API with a 'while' loop
 function createElementsAttraction(json) {
   // While loop to get more than one attraction
-  let i = 0;
-  while (i < 5) {
+  let amountPosts = 0;
+  let maxAmoutPosts = 10;
+
+  while (amountPosts < maxAmoutPosts) {
     const innerDiv = document.createElement("div");
     const title = document.createElement("h3");
     const paragraph = document.createElement("p");
 
-    let titleText = json.response.venues[i].name;
-    let adress = json.response.venues[i].location.address;
+    let titleText = json.response.venues[amountPosts].name;
+    let adress = json.response.venues[amountPosts].location.address;
 
     title.append(titleText);
     paragraph.append(adress);
@@ -92,11 +102,6 @@ function createElementsAttraction(json) {
 
     post.append(innerDiv);
 
-    i++;
+    amountPosts++;
   }
-}
-// a function to try to delete the created elements for the attractions
-function deleteContent() {
-  let deleteAll = document.querySelector(innerDiv);
-  deleteAll.remove();
 }
