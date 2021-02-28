@@ -7,13 +7,14 @@ const resetAtt = document.getElementById("resetButton");
 // variables are created for the checkboxes
 const checkWeather = document.getElementById("onlyWeather");
 const checkAttractions = document.getElementById("onlyAttractions");
-const checkAlph = document.getElementById("alphOrder");
 
 // This is where the code starts, the eventlistener waits for the button click and then executes the code
 searchBtn.addEventListener("click", () => {
+  // If statement to either get only weather, only attractions or both
   if (checkWeather.checked == true) { getWeather(); }
   if (checkAttractions.checked == true) { 
     getAttraction(); 
+    // Hiding the "weather" window
     let x = document.querySelector(".weather")
     let y = document.querySelector(".weatherFrame")
     let z = document.querySelector("#city")
@@ -22,7 +23,7 @@ searchBtn.addEventListener("click", () => {
     z.style.display = "none";
   }
   if (checkWeather.checked == true && checkAttractions.checked == true) { getWeather(); getAttraction(); }
-  if (checkWeather.checked == false && checkAttractions.checked == false && checkAlph.checked == false) { getWeather(); getAttraction(); }
+  if (checkWeather.checked == false && checkAttractions.checked == false) { getWeather(); getAttraction(); }
 });
 // function to get the weather from the API
 async function getWeather() {
