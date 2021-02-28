@@ -3,9 +3,6 @@ const searchBox = document.getElementById("searchBox");
 const searchBtn = document.getElementById("searchButton");
 const post = document.getElementById("centerDiv");
 const resetAtt = document.getElementById("resetButton");
-let deleteInnerDiv = document.querySelectorAll("attractionFrame")
-let deleteTitle = document.querySelectorAll("h3");
-let deleteParagraph = document.querySelectorAll("p");
 
 // variables are created for the checkboxes
 const checkWeather = document.getElementById("onlyWeather");
@@ -15,16 +12,25 @@ const checkAlph = document.getElementById("alphOrder");
 // This is where the code starts, the eventlistener waits for the button click and then executes the code
 searchBtn.addEventListener("click", () => {
   if (checkWeather.checked == true) { getWeather(); }
-  if (checkAttractions.checked == true) { getAttraction(); }
+  if (checkAttractions.checked == true) { 
+    getAttraction(); 
+    let x = document.querySelector(".weather")
+    let y = document.querySelector(".weatherFrame")
+    let z = document.querySelector("#city")
+    x.style.display = "none";
+    y.style.display = "none";
+    z.style.display = "none";
+  }
   if (checkWeather.checked == true && checkAttractions.checked == true) { getWeather(); getAttraction(); }
   if (checkWeather.checked == false && checkAttractions.checked == false && checkAlph.checked == false) { getWeather(); getAttraction(); }
 });
 // function to get the weather from the API
 async function getWeather() {
   let cityName = searchBox.value;
-  let response = await fetch(
+  let response = await fetch(                                                                             // The API key
     `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&lang=en&appid=34832f1e903a4e490cfc9a2d3fffea23`
   );
+  // Look if the contact with the server is OK or not
   if (response.ok) {
     let json = await response.json();
     Weather(json);
@@ -33,7 +39,7 @@ async function getWeather() {
     alert("Couldn't find the weather of that city.");
   }
 }
-
+// "Ugly" way to reset the page and get rid off the attractions
 resetAtt.addEventListener("click", () => {
   window.location.reload();
 })
@@ -56,6 +62,7 @@ function Weather(json) {
 // Function to get the attraction from the API
 async function getAttraction() {
   let cityName = searchBox.value;
+  // The unique keys from the website
   const cID = "F0XVM54UYVNCOZHAZDT4RSKENV3X5QN2DH2WALP0UDVQGYYI";
   const cSecret = "VMJ3P5SXFWKQVGF0ZRW4AUFWB25YZ4YFMRQUYT0KC0F2WCCI";
   // creates the date
@@ -68,6 +75,7 @@ async function getAttraction() {
   let response = await fetch(
     `https://api.foursquare.com/v2/venues/search?near=${cityName}&client_id=${cID}&client_secret=${cSecret}&v=${date}`
   );
+  // Look if the contact with the server is OK or not
   if (response.ok) {
     let json = await response.json();
     console.log(json);
@@ -81,7 +89,6 @@ function createElementsAttraction(json) {
   // While loop to get more than one attraction
   let amountPosts = 0;
   let maxAmoutPosts = 10;
-
   while (amountPosts < maxAmoutPosts) {
     const innerDiv = document.createElement("div");
     const title = document.createElement("h3");
@@ -105,3 +112,4 @@ function createElementsAttraction(json) {
     amountPosts++;
   }
 }
+

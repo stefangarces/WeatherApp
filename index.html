@@ -1,19 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link rel="stylesheet" href="font-awesome/fontawesome-free-5.15.2-web/css/all.min.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>What's the location?</title>
-</head>
-<body>
-      <div class="search-container">
-        <input id="searchBox" type="text" placeholder="Search location.." name="search">
-        <button id="searchButton" type="submit"><i class="fa fa-search"></i></button>
-    </div>
-      <!-- INFORMATION ABOUT THE LOCATION -->
-      <div class="weather">
-        <h3 id="weather">Weather...</h3>
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather and attractions</title>
+  </head>
+  <body>
+    <input
+      id="searchBox"
+      type="text"
+      placeholder="Search location.."
+      name="search"
+    />
+    <button id="searchButton" type="submit">SEARCH</button>
+    
+    <form action="/action_page.php">
+      <input type="checkbox" id="onlyWeather" name="vehicle1" value="Bike">
+      <label for="vehicle1"> Show only weather</label><br>
+      <input type="checkbox" id="onlyAttractions" name="vehicle2" value="Car">
+      <label for="vehicle2"> Show only attractions</label><br>
+      <input type="checkbox" id="alphOrder" name="vehicle3" value="Boat">
+      <label for="vehicle3"> Show in alphabetic order</label><br><br>
+    </form>
+    <button id="resetButton" type="submit">RESET</button>
+
+    <header class="weather">
+      <div class="weatherFrame">
+        <h3 id="city">Weather</h3>
+        <p id="cityWeather"></p>
+        <p id="temp"></p>
       </div>
-</body>
+    </header>
+    <div id="centerDiv"></div>
+    <script src="Script.js"></script>
+  </body>
 </html>
