@@ -33,7 +33,7 @@ searchBtn.addEventListener("click", () => {
   if (checkWeather.checked == true && checkAttractions.checked == true) { getWeather(); getAttraction(); }
   if (checkWeather.checked == false && checkAttractions.checked == false) { getWeather(); getAttraction(); }
 });
-// function to get the weather from the API
+// function to get the weather from the API, using fetch to access and manipulating parts of the http
 async function getWeather() {
   let cityName = searchBox.value;
   let response = await fetch(                                                                             // The API key
@@ -55,7 +55,7 @@ function City(json) {
   let cityName = json.name;
   city.innerHTML = cityName;
 }
-// Function to get the weather from the API
+// Function to get the weather from the API, and generating JSON data
 function Weather(json) {
   let temp = document.getElementById("temp");
   let weather = document.getElementById("cityWeather");
@@ -117,11 +117,10 @@ function createElementsAttraction(json) {
     amountPosts++;
   }
 }
-// "Ugly" way to reset the page and get rid off the attractions
+// Clear the search history of attractions
 resetAtt.addEventListener("click", () => {
   let e = document.querySelector("#centerDiv"); 
         
-  //e.firstElementChild can be used. 
   let child = e.lastElementChild;  
   while (child) { 
       e.removeChild(child); 
