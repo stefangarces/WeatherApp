@@ -10,9 +10,17 @@ const checkAttractions = document.getElementById("onlyAttractions");
 
 // This is where the code starts, the eventlistener waits for the button click and then executes the code
 searchBtn.addEventListener("click", () => {
+
+  let x = document.querySelector(".weather")
+  let y = document.querySelector(".weatherFrame")
+  let z = document.querySelector("#city")
+  x.style.display = "block";
+  y.style.display = "block";
+  z.style.display = "block";
+
   // If statement to either get only weather, only attractions or both
-  if (checkWeather.checked == true) { getWeather(); }
-  if (checkAttractions.checked == true) { 
+  if (checkWeather.checked == true && checkAttractions.checked == false) { getWeather(); }
+  if (checkAttractions.checked == true && checkWeather.checked == false) { 
     getAttraction(); 
     // Hiding the "weather" window
     let x = document.querySelector(".weather")
@@ -40,10 +48,6 @@ async function getWeather() {
     alert("Couldn't find the weather of that city.");
   }
 }
-// "Ugly" way to reset the page and get rid off the attractions
-resetAtt.addEventListener("click", () => {
-  window.location.reload();
-})
 
 // Put the name of the current city on display
 function City(json) {
@@ -113,4 +117,14 @@ function createElementsAttraction(json) {
     amountPosts++;
   }
 }
-
+// "Ugly" way to reset the page and get rid off the attractions
+resetAtt.addEventListener("click", () => {
+  let e = document.querySelector("#centerDiv"); 
+        
+  //e.firstElementChild can be used. 
+  let child = e.lastElementChild;  
+  while (child) { 
+      e.removeChild(child); 
+      child = e.lastElementChild; 
+}
+})
