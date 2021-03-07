@@ -93,7 +93,7 @@ async function getAttraction() {
 function createElementsAttraction(json) {
   // While loop to get more than one attraction
   let amountPosts = 0;
-  let maxAmoutPosts = 10;
+  let maxAmoutPosts = 30;
   while (amountPosts < maxAmoutPosts) {
     const innerDiv = document.createElement("div");
     const title = document.createElement("h3");
