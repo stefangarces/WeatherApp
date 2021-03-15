@@ -6,6 +6,10 @@ body {
     overflow-x: hidden;
 }
 
+#centerContent {
+  text-align: center;
+}
+
   #searchBox {
     margin-top: 15px;
     left: 575px;

@@ -8,6 +8,7 @@
     <title>Weather and attractions</title>
   </head>
   <body>
+    <div id="centerContent">
     <input
       id="searchBox"
       type="text"
@@ -15,7 +16,6 @@
       name="search"
     />
     <button id="searchButton" type="submit">SEARCH</button>
-    
     <form action="/action_page.php">
       <input type="checkbox" id="onlyWeather" value="Bike">
       <label for="vehicle1"> Show only weather</label><br>
@@ -23,7 +23,9 @@
       <label for="vehicle2"> Show only attractions</label><br>
     </form>
     <button id="resetButton" type="submit">CLEAR ATTRACTION</br> HISTORY</button>
+    </div>
     <!-- weather information goes here -->
+    <div id="centerContent">
     <header class="weather">
       <div class="weatherFrame">
         <h3 id="city">Weather</h3>
@@ -31,7 +33,7 @@
         <p id="temp"></p>
       </div>
     </header>
-    <div id="centerDiv"></div>
+  </div>
     <script src="Script.js"></script>
   </body>
 </html>
